@@ -1,0 +1,118 @@
+{% extends "bookings/base.html" %}
+{% block title %}Elara Events — Premium Wedding Planning, Lagos{% endblock %}
+
+{% block content %}
+
+<!-- ═══ HERO ═══ -->
+<section style="background: var(--char); color: #fff; padding: 88px 0 72px; position: relative; overflow: hidden;">
+  <div style="position: absolute; inset: 0; background: radial-gradient(circle at 70% 50%, rgba(181,135,58,.12) 0%, transparent 60%); pointer-events: none;"></div>
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+    <div style="max-width: 660px; position: relative; z-index: 1;">
+      <div style="font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px;">
+        Premium Wedding Planning — Lagos &amp; Beyond
+      </div>
+      <h1 class="serif" style="font-size: clamp(44px, 7vw, 72px); line-height: 1.06; font-weight: 500; margin-bottom: 22px;">
+        Your Perfect Day,<br><em style="font-style: italic; color: var(--gold);">Flawlessly Executed</em>
+      </h1>
+      <p style="font-size: 15px; color: rgba(255,255,255,.6); max-width: 460px; line-height: 1.75; margin-bottom: 36px; font-weight: 300;">
+        We don't just plan weddings — we architect experiences. From intimate ceremonies to grand celebrations, every detail handled with precision and elegance.
+      </p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="{% url 'packages' %}" class="btn-g">Explore Packages</a>
+        <a href="{% url 'book' %}"     class="btn-o" style="color: rgba(255,255,255,.8); border-color: rgba(255,255,255,.25);">Book Consultation</a>
+      </div>
+      <div style="display: flex; gap: 36px; margin-top: 56px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,.1);">
+        {% for num, label in stats %}
+        <div>
+          <div class="serif" style="font-size: 44px; font-weight: 500; color: var(--gold); line-height: 1;">{{ num }}</div>
+          <div style="font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-top: 4px;">{{ label }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section style="padding: 88px 0; background: var(--ivory);">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+    <div style="font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 10px;">What We Offer</div>
+    <h2 class="serif" style="font-size: clamp(34px,5vw,50px); font-weight: 500; text-align: center; margin-bottom: 14px; line-height: 1.08;">Services Designed for Your Vision</h2>
+    <p style="text-align: center; color: var(--stone); font-size: 15px; line-height: 1.75; max-width: 520px; margin: 0 auto 52px; font-weight: 300;">Every service is tailored to your unique story, timeline, and budget.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px;">
+      {% for service in services %}
+      <div class="service-card" style="background: #fff; padding: 36px 28px; transition: all .3s; cursor: default;">
+        <div style="width: 48px; height: 48px; background: var(--ivory); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px;">{{ service.icon }}</div>
+        <h3 class="serif" style="font-size: 20px; font-weight: 600; margin-bottom: 10px;">{{ service.title }}</h3>
+        <p style="font-size: 13px; color: var(--stone); line-height: 1.75; font-weight: 300;">{{ service.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section style="padding: 88px 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+    <div style="font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 10px;">Our Process</div>
+    <h2 class="serif" style="font-size: clamp(34px,5vw,50px); font-weight: 500; text-align: center; margin-bottom: 14px; line-height: 1.08;">Three Steps to Your Dream Day</h2>
+    <p style="text-align: center; color: var(--stone); font-size: 15px; line-height: 1.75; max-width: 520px; margin: 0 auto 52px; font-weight: 300;">We replaced the chaos of DMs and phone tags with a clear, structured system that just works.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px;">
+      <div>
+        <div class="serif" style="font-size: 64px; font-weight: 400; color: var(--gold-p); line-height: 1; margin-bottom: 12px;">01</div>
+        <div style="width: 36px; height: 2px; background: var(--gold); margin: 12px 0;"></div>
+        <h3 class="serif" style="font-size: 20px; font-weight: 600; margin-bottom: 10px;">Choose a Package</h3>
+        <p style="font-size: 13px; color: var(--stone); line-height: 1.75; font-weight: 300;">Browse our curated packages and select the level of service that fits your vision and budget.</p>
+      </div>
+      <div>
+        <div class="serif" style="font-size: 64px; font-weight: 400; color: var(--gold-p); line-height: 1; margin-bottom: 12px;">02</div>
+        <div style="width: 36px; height: 2px; background: var(--gold); margin: 12px 0;"></div>
+        <h3 class="serif" style="font-size: 20px; font-weight: 600; margin-bottom: 10px;">Submit Your Request</h3>
+        <p style="font-size: 13px; color: var(--stone); line-height: 1.75; font-weight: 300;">Fill out our structured booking form — no back-and-forth DMs, no confusion. Just clear information.</p>
+      </div>
+      <div>
+        <div class="serif" style="font-size: 64px; font-weight: 400; color: var(--gold-p); line-height: 1; margin-bottom: 12px;">03</div>
+        <div style="width: 36px; height: 2px; background: var(--gold); margin: 12px 0;"></div>
+        <h3 class="serif" style="font-size: 20px; font-weight: 600; margin-bottom: 10px;">Get Confirmed</h3>
+        <p style="font-size: 13px; color: var(--stone); line-height: 1.75; font-weight: 300;">We review your request and reach out within 24 hours to begin your journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section style="padding: 88px 0; background: var(--char); color: #fff;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+    <div style="font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 10px;">Client Stories</div>
+    <h2 class="serif" style="font-size: clamp(34px,5vw,50px); font-weight: 500; text-align: center; margin-bottom: 14px; line-height: 1.08; color: #fff;">Words From Our Couples</h2>
+    <p style="text-align: center; color: rgba(255,255,255,.5); font-size: 15px; line-height: 1.75; max-width: 520px; margin: 0 auto 52px; font-weight: 300;">Real experiences from families who trusted us with their most important day.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+      {% for t in testimonials %}
+      <div style="padding: 32px; border: 1px solid rgba(255,255,255,.1);">
+        <div style="color: var(--gold); letter-spacing: 3px; margin-bottom: 18px; font-size: 13px;">★★★★★</div>
+        <p class="serif" style="font-size: 19px; font-style: italic; line-height: 1.65; margin-bottom: 22px; color: rgba(255,255,255,.88);">"{{ t.quote }}"</p>
+        <div style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff;">{{ t.author }}</div>
+        <div style="font-size: 11px; color: var(--gold); margin-top: 4px;">{{ t.event }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA STRIP ═══ -->
+<section style="padding: 88px 0; background: var(--ivory); text-align: center;">
+  <div style="max-width: 580px; margin: 0 auto; padding: 0 24px;">
+    <div style="font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px;">Get Started</div>
+    <h2 class="serif" style="font-size: clamp(34px,5vw,50px); font-weight: 500; margin-bottom: 14px; line-height: 1.08;">Ready to Begin Planning?</h2>
+    <p style="color: var(--stone); font-size: 15px; line-height: 1.75; margin-bottom: 32px; font-weight: 300;">Tell us about your event. Our team will review your request and get in touch within 24 hours.</p>
+    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="{% url 'book' %}"     class="btn-d">Request a Booking</a>
+      <a href="{% url 'packages' %}" class="btn-o">View Packages</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

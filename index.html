@@ -1,0 +1,590 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+:root{--cream:#FAF7F2;--ivory:#F4EFE4;--gold:#B5873A;--gold-h:#9B7230;--gold-p:#F0E2BE;--char:#1C1917;--char-l:#2C2825;--stone:#78716C;--stone-l:#A8A29E;--bdr:#E5DDD0;--white:#FFFFFF}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Plus Jakarta Sans',sans-serif}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.nav{background:var(--cream);border-bottom:1px solid var(--bdr);padding:0}
+.nav-i{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;cursor:pointer;letter-spacing:.02em;color:var(--char)}
+.logo span{color:var(--gold)}
+.nav-ls{display:flex;gap:28px;align-items:center}
+.nl{font-size:12px;font-weight:600;color:var(--stone);cursor:pointer;letter-spacing:.07em;text-transform:uppercase;background:none;border:none;transition:color .2s;padding:4px 0}
+.nl:hover,.nl.act{color:var(--char)}
+.nb{background:var(--char);color:white;padding:10px 22px;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.07em;text-transform:uppercase;border:none;transition:all .2s}
+.nb:hover{background:var(--char-l)}
+.btn-d{background:var(--char);color:white;padding:15px 34px;border:none;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:all .25s;display:inline-block}
+.btn-d:hover{background:var(--char-l);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--char);padding:14px 34px;border:1.5px solid var(--char);cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:all .25s;display:inline-block}
+.btn-o:hover{background:var(--char);color:white}
+.btn-g{background:var(--gold);color:white;padding:15px 34px;border:none;cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:all .25s;display:inline-block}
+.btn-g:hover{background:var(--gold-h);transform:translateY(-1px)}
+.btn-go{background:transparent;color:var(--gold);padding:14px 34px;border:1.5px solid var(--gold);cursor:pointer;font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;transition:all .25s;display:inline-block}
+.btn-go:hover{background:var(--gold);color:white}
+.hero{background:var(--char);color:white;padding:88px 0 72px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 70% 50%, rgba(181,135,58,.12) 0%, transparent 60%);pointer-events:none}
+.hero-ey{font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.hero-h{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7vw,72px);line-height:1.06;font-weight:500;margin-bottom:22px}
+.hero-h em{font-style:italic;color:var(--gold)}
+.hero-s{font-size:15px;color:rgba(255,255,255,.6);max-width:460px;line-height:1.75;margin-bottom:36px;font-weight:300}
+.hero-bs{display:flex;gap:14px;flex-wrap:wrap}
+.hero-sts{display:flex;gap:36px;margin-top:56px;padding-top:36px;border-top:1px solid rgba(255,255,255,.1)}
+.stn{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;color:var(--gold);line-height:1}
+.stl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px}
+.sec{padding:88px 0}
+.sec-alt{background:var(--ivory)}
+.sec-dk{background:var(--char);color:white}
+.sec-ey{font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:10px}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,50px);font-weight:500;text-align:center;margin-bottom:14px;line-height:1.08}
+.sec-s{text-align:center;color:var(--stone);font-size:15px;line-height:1.75;max-width:520px;margin:0 auto 52px;font-weight:300}
+.sec-dk .sec-s{color:rgba(255,255,255,.5)}
+.sec-dk .sec-h{color:white}
+.sv-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px}
+.sv-c{background:white;padding:36px 28px;transition:all .3s;cursor:default}
+.sv-c:hover{background:var(--char);color:white}
+.sv-c:hover .sv-d{color:rgba(255,255,255,.55)}
+.sv-c:hover .sv-ico{background:rgba(181,135,58,.15)}
+.sv-ico{width:48px;height:48px;background:var(--ivory);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px;transition:all .3s}
+.sv-t{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:10px}
+.sv-d{font-size:13px;color:var(--stone);line-height:1.75;transition:color .3s;font-weight:300}
+.steps-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px}
+.step-n{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:400;color:var(--gold-p);line-height:1;margin-bottom:12px}
+.step-l{width:36px;height:2px;background:var(--gold);margin:12px 0}
+.step-t{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:10px}
+.step-d{font-size:13px;color:var(--stone);line-height:1.75;font-weight:300}
+.test-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.test-c{padding:32px;border:1px solid rgba(255,255,255,.1)}
+.test-st{color:var(--gold);letter-spacing:3px;margin-bottom:18px;font-size:13px}
+.test-q{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;line-height:1.65;margin-bottom:22px;color:rgba(255,255,255,.88)}
+.test-a{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:white}
+.test-ev{font-size:11px;color:var(--gold);margin-top:4px}
+.pkgs-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0}
+.pkg-c{border:1px solid var(--bdr);padding:44px 32px;background:white;transition:all .3s;position:relative}
+.pkg-c:hover:not(.pkg-f){box-shadow:0 20px 48px rgba(28,25,23,.09);transform:translateY(-3px);z-index:1}
+.pkg-f{background:var(--char);color:white;border-color:var(--char);z-index:2;transform:scale(1.025);box-shadow:0 24px 60px rgba(28,25,23,.22)}
+.pkg-b{background:var(--gold);color:white;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;position:absolute;top:-1px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.pkg-n{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.pkg-p{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;line-height:1;margin-bottom:4px}
+.pkg-pn{font-size:12px;color:var(--stone-l);margin-bottom:28px}
+.pkg-f .pkg-pn{color:rgba(255,255,255,.45)}
+.pkg-div{height:1px;background:var(--bdr);margin-bottom:28px}
+.pkg-f .pkg-div{background:rgba(255,255,255,.12)}
+.pkg-fs{list-style:none;margin-bottom:32px;display:flex;flex-direction:column;gap:12px}
+.pkg-fs li{font-size:13px;color:var(--stone);display:flex;gap:9px;align-items:flex-start;line-height:1.55}
+.pkg-f .pkg-fs li{color:rgba(255,255,255,.65)}
+.pkg-ck{color:var(--gold);font-size:10px;flex-shrink:0;margin-top:2px}
+.fc-s{background:var(--cream);padding:72px 0}
+.fc-card{background:white;border:1px solid var(--bdr);padding:52px 48px;max-width:740px;margin:0 auto}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fl{display:block;font-size:10px;font-weight:700;color:var(--char);margin-bottom:7px;letter-spacing:.12em;text-transform:uppercase}
+.fi{width:100%;padding:13px 15px;border:1.5px solid var(--bdr);background:var(--cream);font-size:14px;color:var(--char);transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;outline:none;appearance:none;-webkit-appearance:none}
+.fi:focus{border-color:var(--gold);background:white;box-shadow:0 0 0 3px rgba(181,135,58,.1)}
+.fi::placeholder{color:var(--stone-l)}
+.fi.err{border-color:#DC2626}
+.fh{font-size:11px;color:#DC2626;margin-top:5px}
+.fdiv{height:1px;background:var(--bdr);margin:28px 0}
+.prog-bar{height:3px;margin-bottom:7px}
+.prog-l{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.con-card{background:white;border:1px solid var(--bdr);padding:56px 48px;max-width:580px;margin:0 auto;text-align:center}
+.con-ico{width:72px;height:72px;background:#F0FDF4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:#166534}
+.sum-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--bdr);font-size:13px;text-align:left}
+.sum-l{color:var(--stone);font-weight:500}
+.sum-v{font-weight:600;color:var(--char)}
+.adm-w{display:flex;background:#F7F5F1;min-height:580px}
+.adm-sb{background:var(--char);width:220px;flex-shrink:0;padding:28px 0}
+.adm-logo{font-family:'Cormorant Garamond',serif;font-size:20px;color:white;padding:0 20px;margin-bottom:36px}
+.adm-logo span{color:var(--gold)}
+.adm-ni{padding:11px 20px;font-size:12px;color:rgba(255,255,255,.45);cursor:pointer;display:flex;align-items:center;gap:9px;font-weight:600;transition:all .2s;letter-spacing:.04em}
+.adm-ni:hover{color:white;background:rgba(255,255,255,.05)}
+.adm-ni.act{color:white;background:rgba(181,135,58,.15);border-left:2px solid var(--gold)}
+.adm-main{flex:1;padding:36px 32px}
+.adm-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px}
+.adm-t{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;color:var(--char)}
+.adm-sub{font-size:13px;color:var(--stone);margin-top:3px}
+.adm-sts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.st-c{background:white;border:1px solid var(--bdr);padding:18px 20px}
+.st-l{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin-bottom:7px}
+.st-v{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--char);line-height:1}
+.st-ch{font-size:11px;margin-top:4px}
+.adm-tw{background:white;border:1px solid var(--bdr)}
+.adm-th{padding:18px 20px;border-bottom:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center}
+.adm-tt{font-size:14px;font-weight:600;color:var(--char)}
+.adm-ctrls{display:flex;gap:10px}
+.adm-inp{padding:8px 12px;border:1.5px solid var(--bdr);background:var(--cream);font-size:12px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:all .2s;color:var(--char)}
+.adm-inp:focus{border-color:var(--gold)}
+.adm-table{width:100%;border-collapse:collapse}
+.adm-table th{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);padding:12px 18px;text-align:left;border-bottom:1px solid var(--bdr);background:#FAFAF8}
+.adm-table td{padding:16px 18px;font-size:13px;border-bottom:1px solid var(--bdr);color:var(--char)}
+.adm-table tr:last-child td{border-bottom:none}
+.adm-table tr:hover td{background:#FAFAF8}
+.sp{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;font-size:10px;font-weight:700;letter-spacing:.06em;border-radius:20px;text-transform:uppercase}
+.sp-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
+.s-new{background:#EFF6FF;color:#1E40AF}
+.s-con{background:#FFFBEB;color:#92400E}
+.s-cfm{background:#F0FDF4;color:#166534}
+.s-dec{background:#FFF1F2;color:#9F1239}
+.ft{background:var(--char);color:rgba(255,255,255,.45);padding:52px 0 28px}
+.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:26px;color:white;margin-bottom:12px}
+.ft-logo span{color:var(--gold)}
+.ft-desc{font-size:13px;line-height:1.75;font-weight:300;max-width:280px}
+.ft-ht{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:white;margin-bottom:16px}
+.ft-ls{display:flex;flex-direction:column;gap:9px}
+.ft-l{font-size:13px;color:rgba(255,255,255,.38);font-weight:300}
+.ft-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;justify-content:space-between;font-size:11px}
+.page-in{animation:pgIn .3s ease forwards}
+@keyframes pgIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.nav-ls{display:none}.hero-sts{gap:20px}.stn{font-size:34px}.fg2{grid-template-columns:1fr}.fc-card,.con-card{padding:32px 20px}.adm-sb{display:none}.adm-sts{grid-template-columns:1fr 1fr}.ft-g{grid-template-columns:1fr}.pkgs-g{grid-template-columns:1fr}.pkg-f{transform:none}}
+</style>
+
+<h2 class="sr-only">Elara Events — Wedding Planning Booking System UI with 5 pages: landing, packages, booking form, confirmation, and admin dashboard</h2>
+<div id="app"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script>
+const {useState,useEffect} = React;
+const e = React.createElement;
+
+const pkgs=[
+  {id:1,name:"Essential",price:"₦150,000",note:"Starting price",features:["Wedding day coordination","Vendor referrals","Basic timeline planning","Up to 50 guests","3 consultation sessions"],featured:false},
+  {id:2,name:"Signature",price:"₦380,000",note:"Most popular choice",features:["Full planning & coordination","Décor & styling included","Vendor sourcing & management","Up to 150 guests","Unlimited consultations","Day-of coordination team","Budget tracking"],featured:true},
+  {id:3,name:"Prestige",price:"₦750,000",note:"All-inclusive experience",features:["Everything in Signature","Luxury décor & florals","Personal bridal stylist","Custom wedding website","Up to 500 guests","Post-event photo curation","Honeymoon planning"],featured:false}
+];
+
+const sampleBookings=[
+  {id:1,name:"Adaeze Okonkwo",type:"Wedding",date:"2024-06-14",pkg:"Signature",status:"confirmed",amt:"₦380,000"},
+  {id:2,name:"Bisi & Emeka Adeleke",type:"Wedding",date:"2024-07-21",pkg:"Prestige",status:"contacted",amt:"₦750,000"},
+  {id:3,name:"Funmi Oladele",type:"Engagement",date:"2024-05-30",pkg:"Essential",status:"new",amt:"₦150,000"},
+  {id:4,name:"Kemi Afolabi",type:"Birthday",date:"2024-05-15",pkg:"Essential",status:"confirmed",amt:"₦150,000"},
+  {id:5,name:"Tunde & Ngozi Bassey",type:"Wedding",date:"2024-08-03",pkg:"Signature",status:"new",amt:"₦380,000"},
+  {id:6,name:"Chiamaka Eze",type:"Corporate",date:"2024-06-07",pkg:"Essential",status:"declined",amt:"₦150,000"}
+];
+
+function StatusPill({status}){
+  const cls={new:"s-new",contacted:"s-con",confirmed:"s-cfm",declined:"s-dec"};
+  const labels={new:"New",contacted:"Contacted",confirmed:"Confirmed",declined:"Declined"};
+  return e("span",{className:`sp ${cls[status]}`},e("span",{className:"sp-dot"}),labels[status]);
+}
+
+function Nav({page,nav}){
+  return e("nav",{className:"nav"},
+    e("div",{className:"container"},
+      e("div",{className:"nav-i"},
+        e("div",{className:"logo serif",onClick:()=>nav("home")},"Elara",e("span",null,"."),"Events"),
+        e("div",{className:"nav-ls"},
+          e("button",{className:`nl${page==="home"?" act":""}`,onClick:()=>nav("home")},"Home"),
+          e("button",{className:`nl${page==="packages"?" act":""}`,onClick:()=>nav("packages")},"Packages"),
+          e("button",{className:`nl${page==="admin"?" act":""}`,onClick:()=>nav("admin")},"Admin")
+        ),
+        e("button",{className:"nb",onClick:()=>nav("booking")},"Book Now")
+      )
+    )
+  );
+}
+
+function Footer({nav}){
+  return e("footer",{className:"ft"},
+    e("div",{className:"container"},
+      e("div",{className:"ft-g"},
+        e("div",null,
+          e("div",{className:"ft-logo serif"},"Elara",e("span",null,"."),"Events"),
+          e("p",{className:"ft-desc"},"Premium wedding and event planning across Lagos. Making extraordinary moments effortlessly beautiful since 2016.")
+        ),
+        e("div",null,
+          e("div",{className:"ft-ht"},"Navigate"),
+          e("div",{className:"ft-ls"},
+            ["Home","Packages","About","Blog"].map(l=>e("span",{key:l,className:"ft-l",style:{cursor:"pointer"},onClick:()=>nav(l.toLowerCase())},l))
+          )
+        ),
+        e("div",null,
+          e("div",{className:"ft-ht"},"Contact"),
+          e("div",{className:"ft-ls"},
+            ["hello@elaraevents.ng","+234 803 000 0000","Victoria Island, Lagos"].map(t=>e("span",{key:t,className:"ft-l"},t))
+          )
+        )
+      ),
+      e("div",{className:"ft-bot"},
+        e("span",null,"© 2024 Elara Events. All rights reserved."),
+        e("span",null,"Crafted with elegance.")
+      )
+    )
+  );
+}
+
+function HomePage({nav}){
+  return e("div",{className:"page-in"},
+    e("section",{className:"hero"},
+      e("div",{className:"container"},
+        e("div",{style:{maxWidth:660,position:"relative",zIndex:1}},
+          e("div",{className:"hero-ey"},"Premium Wedding Planning — Lagos & Beyond"),
+          e("h1",{className:"hero-h serif"},"Your Perfect Day,",e("br"),e("em",null,"Flawlessly Executed")),
+          e("p",{className:"hero-s"},"We don't just plan weddings — we architect experiences. From intimate ceremonies to grand celebrations, every detail handled with precision and elegance."),
+          e("div",{className:"hero-bs"},
+            e("button",{className:"btn-g",onClick:()=>nav("packages")},"Explore Packages"),
+            e("button",{className:"btn-o",style:{color:"rgba(255,255,255,.8)",borderColor:"rgba(255,255,255,.25)"},onClick:()=>nav("booking")},"Book Consultation")
+          ),
+          e("div",{className:"hero-sts"},
+            [["200+","Events Planned"],["98%","Client Satisfaction"],["8+","Years Experience"]].map(([n,l])=>
+              e("div",{key:l},
+                e("div",{className:"stn serif"},n),
+                e("div",{className:"stl"},l)
+              )
+            )
+          )
+        )
+      )
+    ),
+    e("section",{className:"sec sec-alt"},
+      e("div",{className:"container"},
+        e("div",{className:"sec-ey"},"What We Offer"),
+        e("h2",{className:"sec-h serif"},"Services Designed for Your Vision"),
+        e("p",{className:"sec-s"},"Every service is tailored to your unique story, timeline, and budget."),
+        e("div",{className:"sv-g"},
+          [
+            {ic:"💍",t:"Full Wedding Planning",d:"End-to-end coordination from engagement to your last dance. We handle everything so you simply enjoy the day."},
+            {ic:"🌸",t:"Décor & Styling",d:"Transforming venues into breathtaking spaces that reflect your personality, taste, and love story."},
+            {ic:"📋",t:"Day Coordination",d:"Our team ensures every moment runs on schedule, so you and your guests experience pure joy."},
+            {ic:"🤝",t:"Vendor Management",d:"We source and manage trusted vendors — from caterers to photographers — and negotiate on your behalf."}
+          ].map(s=>
+            e("div",{key:s.t,className:"sv-c"},
+              e("div",{className:"sv-ico"},s.ic),
+              e("h3",{className:"sv-t serif"},s.t),
+              e("p",{className:"sv-d"},s.d)
+            )
+          )
+        )
+      )
+    ),
+    e("section",{className:"sec"},
+      e("div",{className:"container"},
+        e("div",{className:"sec-ey"},"Our Process"),
+        e("h2",{className:"sec-h serif"},"Three Steps to Your Dream Day"),
+        e("p",{className:"sec-s"},"We replaced the chaos of DMs and phone tags with a clear, structured system that just works."),
+        e("div",{className:"steps-g"},
+          [
+            {n:"01",t:"Choose a Package",d:"Browse our curated packages and select the level of service that fits your vision and budget."},
+            {n:"02",t:"Submit Your Request",d:"Fill out our structured booking form — no back-and-forth DMs, no confusion. Just clear information."},
+            {n:"03",t:"Get Confirmed",d:"We review your request and reach out within 24 hours to begin your journey."}
+          ].map(s=>
+            e("div",{key:s.n},
+              e("div",{className:"step-n serif"},s.n),
+              e("div",{className:"step-l"}),
+              e("h3",{className:"step-t serif"},s.t),
+              e("p",{className:"step-d"},s.d)
+            )
+          )
+        )
+      )
+    ),
+    e("section",{className:"sec sec-dk"},
+      e("div",{className:"container"},
+        e("div",{className:"sec-ey"},"Client Stories"),
+        e("h2",{className:"sec-h serif"},"Words From Our Couples"),
+        e("p",{className:"sec-s"},"Real experiences from families who trusted us with their most important day."),
+        e("div",{className:"test-g"},
+          [
+            {q:"Elara Events made our wedding completely stress-free. Every detail we discussed was executed perfectly — from the florals to the timeline. Truly exceptional.",a:"Adaeze & Emeka Okonkwo",ev:"Traditional & White Wedding, April 2024"},
+            {q:"I was skeptical about using a planner, but working with Elara transformed our experience. They handled vendors we didn't even know we needed. Worth every kobo.",a:"Bisi Adeleke",ev:"Garden Wedding, February 2024"},
+            {q:"The booking system alone saved us so much time. No DMs, no confusion — just a clear process from day one. Our guests are still talking about the décor.",a:"Ngozi & Tunde Bassey",ev:"Lagos Wedding, December 2023"}
+          ].map(t=>
+            e("div",{key:t.a,className:"test-c"},
+              e("div",{className:"test-st"},"★★★★★"),
+              e("p",{className:"test-q serif"},`"${t.q}"`),
+              e("div",{className:"test-a"},t.a),
+              e("div",{className:"test-ev"},t.ev)
+            )
+          )
+        )
+      )
+    ),
+    e("section",{className:"sec sec-alt",style:{textAlign:"center"}},
+      e("div",{className:"container",style:{maxWidth:580}},
+        e("div",{className:"sec-ey"},"Get Started"),
+        e("h2",{className:"sec-h serif"},"Ready to Begin Planning?"),
+        e("p",{className:"sec-s"},"Tell us about your event. Our team will review your request and get in touch within 24 hours."),
+        e("div",{style:{display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap"}},
+          e("button",{className:"btn-d",onClick:()=>nav("booking")},"Request a Booking"),
+          e("button",{className:"btn-o",onClick:()=>nav("packages")},"View Packages")
+        )
+      )
+    ),
+    e(Footer,{nav})
+  );
+}
+
+function PackagesPage({nav,onBook}){
+  return e("div",{className:"page-in"},
+    e("section",{className:"sec",style:{background:"var(--ivory)"}},
+      e("div",{className:"container"},
+        e("div",{className:"sec-ey"},"Transparent Pricing"),
+        e("h1",{className:"sec-h serif"},"Choose Your Experience"),
+        e("p",{className:"sec-s"},"Every package is crafted to deliver exceptional results. No hidden fees, no surprises — just your perfect day."),
+        e("div",{className:"pkgs-g"},
+          pkgs.map(pkg=>
+            e("div",{key:pkg.id,className:`pkg-c${pkg.featured?" pkg-f":""}`},
+              pkg.featured&&e("div",{className:"pkg-b"},"Most Popular"),
+              e("div",{className:"pkg-n"},pkg.name),
+              e("div",{className:"pkg-p serif"},pkg.price),
+              e("div",{className:"pkg-pn"},pkg.note),
+              e("div",{className:"pkg-div"}),
+              e("ul",{className:"pkg-fs"},
+                pkg.features.map(f=>e("li",{key:f},e("span",{className:"pkg-ck"},"✦"),e("span",null,f)))
+              ),
+              pkg.featured
+                ?e("button",{className:"btn-g",style:{width:"100%"},onClick:()=>onBook(pkg)},`Book Signature`)
+                :e("button",{className:"btn-o",style:{width:"100%",color:pkg.featured?"white":"var(--char)"},onClick:()=>onBook(pkg)},`Book ${pkg.name}`)
+            )
+          )
+        ),
+        e("p",{style:{textAlign:"center",marginTop:36,fontSize:13,color:"var(--stone)"}},
+          "Not sure which fits? ",
+          e("span",{style:{color:"var(--gold)",cursor:"pointer",fontWeight:600},onClick:()=>nav("booking")},"Book a free consultation →")
+        )
+      )
+    ),
+    e(Footer,{nav})
+  );
+}
+
+function BookingPage({nav,formData,setFormData,errors,setErrors,onSubmit,pkgOptions}){
+  const fi=(name,placeholder,type="text",half=false)=>e("div",{className:"form-field",style:half?{gridColumn:"span 1"}:{}},
+    e("label",{className:"fl"},name.replace(/([A-Z])/g," $1").replace(/^./,s=>s.toUpperCase())+" *"),
+    e("input",{
+      className:`fi${errors[name]?" err":""}`,
+      type,placeholder,
+      value:formData[name]||"",
+      onChange:ev=>{setFormData(p=>({...p,[name]:ev.target.value}));setErrors(p=>({...p,[name]:""}));}
+    }),
+    errors[name]&&e("div",{className:"fh"},errors[name])
+  );
+  return e("div",{className:"page-in"},
+    e("section",{className:"fc-s"},
+      e("div",{className:"container"},
+        e("div",{style:{textAlign:"center",marginBottom:48}},
+          e("div",{className:"sec-ey"},"Let's Get Started"),
+          e("h1",{className:"sec-h serif",style:{marginBottom:10}},"Request a Booking"),
+          e("p",{style:{color:"var(--stone)",fontSize:14,maxWidth:460,margin:"0 auto",lineHeight:1.75,fontWeight:300}},"Fill in the details below. Our team reviews and gets back to you within 24 hours.")
+        ),
+        e("div",{className:"fc-card"},
+          e("div",{style:{display:"flex",gap:6,marginBottom:36}},
+            [["Your Details","var(--gold)"],["Event Info","var(--gold-p)"],["Review","var(--bdr)"]].map(([lbl,clr])=>
+              e("div",{key:lbl,style:{flex:1}},
+                e("div",{className:"prog-bar",style:{background:clr}}),
+                e("div",{className:"prog-l",style:{color:clr==="var(--gold)"?"var(--gold)":"var(--stone-l)"}},lbl)
+              )
+            )
+          ),
+          e("h3",{className:"serif",style:{fontSize:18,fontWeight:600,marginBottom:20,paddingBottom:12,borderBottom:"1px solid var(--bdr)"}},"Personal Information"),
+          e("div",{className:"fg2",style:{marginBottom:18}},
+            e("div",null,
+              e("label",{className:"fl"},"Full Name *"),
+              e("input",{className:`fi${errors.name?" err":""}`,type:"text",placeholder:"e.g. Adaeze Okonkwo",value:formData.name,onChange:ev=>{setFormData(p=>({...p,name:ev.target.value}));setErrors(p=>({...p,name:""}));}}),
+              errors.name&&e("div",{className:"fh"},errors.name)
+            ),
+            e("div",null,
+              e("label",{className:"fl"},"Email Address *"),
+              e("input",{className:`fi${errors.email?" err":""}`,type:"email",placeholder:"you@email.com",value:formData.email,onChange:ev=>{setFormData(p=>({...p,email:ev.target.value}));setErrors(p=>({...p,email:""}));}}),
+              errors.email&&e("div",{className:"fh"},errors.email)
+            )
+          ),
+          e("div",{style:{maxWidth:"50%",marginBottom:28}},
+            e("label",{className:"fl"},"Phone Number *"),
+            e("input",{className:`fi${errors.phone?" err":""}`,type:"tel",placeholder:"+234 803 000 0000",value:formData.phone,onChange:ev=>{setFormData(p=>({...p,phone:ev.target.value}));setErrors(p=>({...p,phone:""}));}}),
+            errors.phone&&e("div",{className:"fh"},errors.phone)
+          ),
+          e("div",{className:"fdiv"}),
+          e("h3",{className:"serif",style:{fontSize:18,fontWeight:600,marginBottom:20,paddingBottom:12,borderBottom:"1px solid var(--bdr)"}},"Event Details"),
+          e("div",{className:"fg2",style:{marginBottom:18}},
+            e("div",null,
+              e("label",{className:"fl"},"Event Type *"),
+              e("select",{className:`fi${errors.eventType?" err":""}`,value:formData.eventType,onChange:ev=>{setFormData(p=>({...p,eventType:ev.target.value}));setErrors(p=>({...p,eventType:""}));}},
+                e("option",{value:""},"Select event type"),
+                ["Wedding","Engagement / Introduction","Birthday Party","Corporate Event","Burial Ceremony","Other"].map(o=>e("option",{key:o,value:o},o))
+              ),
+              errors.eventType&&e("div",{className:"fh"},errors.eventType)
+            ),
+            e("div",null,
+              e("label",{className:"fl"},"Event Date *"),
+              e("input",{className:`fi${errors.eventDate?" err":""}`,type:"date",value:formData.eventDate,onChange:ev=>{setFormData(p=>({...p,eventDate:ev.target.value}));setErrors(p=>({...p,eventDate:""}));}}),
+              errors.eventDate&&e("div",{className:"fh"},errors.eventDate)
+            )
+          ),
+          e("div",{className:"fg2",style:{marginBottom:18}},
+            e("div",null,
+              e("label",{className:"fl"},"Budget Range *"),
+              e("select",{className:`fi${errors.budget?" err":""}`,value:formData.budget,onChange:ev=>{setFormData(p=>({...p,budget:ev.target.value}));setErrors(p=>({...p,budget:""}));}},
+                e("option",{value:""},"Select budget range"),
+                ["Under ₦100,000","₦100,000 – ₦300,000","₦300,000 – ₦600,000","₦600,000 – ₦1,000,000","Above ₦1,000,000"].map(o=>e("option",{key:o,value:o},o))
+              ),
+              errors.budget&&e("div",{className:"fh"},errors.budget)
+            ),
+            e("div",null,
+              e("label",{className:"fl"},"Selected Package"),
+              e("select",{className:"fi",value:formData.package,onChange:ev=>setFormData(p=>({...p,package:ev.target.value}))},
+                e("option",{value:""},"No preference"),
+                pkgs.map(pk=>e("option",{key:pk.id,value:pk.name},`${pk.name} — ${pk.price}`))
+              )
+            )
+          ),
+          e("div",{style:{marginBottom:28}},
+            e("label",{className:"fl"},"Additional Notes"),
+            e("textarea",{className:"fi",placeholder:"Venue preferences, special requests, guest count, décor ideas...",rows:4,value:formData.notes,onChange:ev=>setFormData(p=>({...p,notes:ev.target.value})),style:{resize:"vertical"}})
+          ),
+          e("div",{className:"fdiv"}),
+          e("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:16}},
+            e("p",{style:{fontSize:12,color:"var(--stone)",lineHeight:1.7}},"We'll contact you within 24 hours.",e("br"),"No spam or unnecessary calls."),
+            e("button",{className:"btn-d",onClick:onSubmit},"Request Booking →")
+          )
+        )
+      )
+    ),
+    e(Footer,{nav})
+  );
+}
+
+function ConfirmationPage({nav,bookingData}){
+  return e("div",{className:"page-in"},
+    e("section",{className:"sec"},
+      e("div",{className:"container"},
+        e("div",{className:"con-card"},
+          e("div",{className:"con-ico"},"✓"),
+          e("div",{className:"sec-ey",style:{marginBottom:8}},"Booking Received"),
+          e("h1",{className:"serif",style:{fontSize:34,fontWeight:500,marginBottom:10,textAlign:"center"}},"You're All Set!"),
+          e("p",{style:{color:"var(--stone)",fontSize:14,lineHeight:1.75,textAlign:"center",marginBottom:36,fontWeight:300}},"Your booking request has been received. Our team will review the details and contact you within 24 hours to confirm your event."),
+          e("div",{style:{background:"var(--cream)",border:"1px solid var(--bdr)",padding:"20px 24px",marginBottom:28,textAlign:"left"}},
+            e("div",{style:{fontSize:10,fontWeight:700,letterSpacing:".14em",textTransform:"uppercase",marginBottom:14,color:"var(--gold)"}},"Booking Summary"),
+            [["Name",bookingData?.name],["Email",bookingData?.email],["Phone",bookingData?.phone],["Event Type",bookingData?.eventType],["Event Date",bookingData?.eventDate],["Budget",bookingData?.budget],["Package",bookingData?.package||"No preference"]].map(([l,v])=>
+              v&&e("div",{key:l,className:"sum-row"},e("span",{className:"sum-l"},l),e("span",{className:"sum-v"},v))
+            )
+          ),
+          e("div",{style:{border:"1px solid var(--bdr)",padding:"20px 24px",marginBottom:32,textAlign:"left"}},
+            e("div",{style:{fontSize:10,fontWeight:700,letterSpacing:".14em",textTransform:"uppercase",marginBottom:14,color:"var(--char)"}},"What Happens Next"),
+            [["1","Our team reviews your request and checks availability"],["2","We call or email you within 24 hours to confirm"],["3","A consultation session is scheduled to plan your event"]].map(([n,t])=>
+              e("div",{key:n,style:{display:"flex",gap:12,marginBottom:12,alignItems:"flex-start"}},
+                e("div",{style:{width:26,height:26,background:"var(--char)",color:"white",display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:700,flexShrink:0}},n),
+                e("p",{style:{fontSize:13,color:"var(--stone)",lineHeight:1.65,paddingTop:4}},t)
+              )
+            )
+          ),
+          e("div",{style:{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap"}},
+            e("button",{className:"btn-d",onClick:()=>nav("home")},"← Back to Home"),
+            e("button",{className:"btn-o",onClick:()=>nav("packages")},"View Packages")
+          )
+        )
+      )
+    ),
+    e(Footer,{nav})
+  );
+}
+
+function AdminPage({nav}){
+  const [search,setSearch]=useState("");
+  const [filter,setFilter]=useState("all");
+  const filtered=sampleBookings.filter(b=>{
+    const ms=b.name.toLowerCase().includes(search.toLowerCase())||b.type.toLowerCase().includes(search.toLowerCase());
+    const mf=filter==="all"||b.status===filter;
+    return ms&&mf;
+  });
+  const fmt=d=>new Date(d).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
+  const cnts={total:sampleBookings.length,new:sampleBookings.filter(b=>b.status==="new").length,confirmed:sampleBookings.filter(b=>b.status==="confirmed").length,contacted:sampleBookings.filter(b=>b.status==="contacted").length};
+  return e("div",{className:"page-in adm-w"},
+    e("div",{className:"adm-sb"},
+      e("div",{className:"adm-logo serif"},"Elara",e("span",null,".")),
+      [["📊","Dashboard",true],["📅","Bookings",false],["📦","Packages",false],["👥","Clients",false],["⚙️","Settings",false]].map(([ic,lbl,act])=>
+        e("div",{key:lbl,className:`adm-ni${act?" act":""}`,onClick:act?undefined:()=>{}},e("span",null,ic),e("span",null,lbl))
+      ),
+      e("div",{style:{marginTop:"auto",padding:"0 20px",paddingTop:40}},
+        e("div",{className:"adm-ni",style:{color:"rgba(255,255,255,.35)",cursor:"pointer"},onClick:()=>nav("home")},"← ","Back to Site")
+      )
+    ),
+    e("div",{className:"adm-main"},
+      e("div",{className:"adm-hd"},
+        e("div",null,
+          e("div",{className:"adm-t serif"},"Bookings Dashboard"),
+          e("div",{className:"adm-sub"},"Manage and track all event booking requests")
+        ),
+        e("button",{className:"btn-d",style:{fontSize:11,padding:"9px 18px"},onClick:()=>nav("booking")},"+ New Booking")
+      ),
+      e("div",{className:"adm-sts"},
+        [
+          {l:"Total Bookings",v:cnts.total,ch:"+3 this week",c:"#16A34A"},
+          {l:"New Requests",v:cnts.new,ch:"Needs review",c:"#92400E"},
+          {l:"Confirmed",v:cnts.confirmed,ch:"In progress",c:"#16A34A"},
+          {l:"Contacted",v:cnts.contacted,ch:"Awaiting reply",c:"#92400E"}
+        ].map(s=>e("div",{key:s.l,className:"st-c"},e("div",{className:"st-l"},s.l),e("div",{className:"st-v serif"},s.v),e("div",{className:"st-ch",style:{color:s.c}},s.ch)))
+      ),
+      e("div",{className:"adm-tw"},
+        e("div",{className:"adm-th"},
+          e("div",{className:"adm-tt"},"All Booking Requests"),
+          e("div",{className:"adm-ctrls"},
+            e("select",{className:"adm-inp",style:{width:130},value:filter,onChange:ev=>setFilter(ev.target.value)},
+              e("option",{value:"all"},"All Statuses"),
+              ["new","contacted","confirmed","declined"].map(s=>e("option",{key:s,value:s},s.charAt(0).toUpperCase()+s.slice(1)))
+            ),
+            e("input",{className:"adm-inp",style:{width:200},placeholder:"Search bookings...",value:search,onChange:ev=>setSearch(ev.target.value)})
+          )
+        ),
+        filtered.length===0
+          ?e("div",{style:{padding:"64px 24px",textAlign:"center"}},
+              e("div",{style:{fontSize:36,marginBottom:14}},"📋"),
+              e("div",{style:{fontSize:15,fontWeight:600,marginBottom:6}},"No bookings found"),
+              e("div",{style:{fontSize:13,color:"var(--stone)"}},"Try adjusting your search or filter criteria")
+            )
+          :e("table",{className:"adm-table"},
+              e("thead",null,e("tr",null,["Client","Event","Date","Package","Amount","Status"].map(h=>e("th",{key:h},h)))),
+              e("tbody",null,
+                filtered.map(b=>e("tr",{key:b.id},
+                  e("td",{style:{fontWeight:600}},b.name),
+                  e("td",{style:{color:"var(--stone)"}},b.type),
+                  e("td",{style:{color:"var(--stone)"}},fmt(b.date)),
+                  e("td",null,e("span",{style:{background:"var(--ivory)",padding:"3px 9px",fontSize:11,fontWeight:700,letterSpacing:".04em"}},b.pkg)),
+                  e("td",{style:{fontWeight:700,color:"var(--gold)"}},b.amt),
+                  e("td",null,e(StatusPill,{status:b.status}))
+                ))
+              )
+            )
+      )
+    )
+  );
+}
+
+function App(){
+  const [page,setPage]=useState("home");
+  const [formData,setFormData]=useState({name:"",email:"",phone:"",eventType:"",eventDate:"",budget:"",package:"",notes:""});
+  const [errors,setErrors]=useState({});
+  const [bookingData,setBookingData]=useState(null);
+
+  const nav=p=>{setPage(p);try{window.parent.document.querySelector("iframe")?.contentWindow?.scrollTo(0,0);}catch(e){}};
+
+  const handleBookPkg=pkg=>{
+    setFormData(p=>({...p,package:pkg.name}));
+    nav("booking");
+  };
+
+  const handleSubmit=()=>{
+    const e={};
+    if(!formData.name)e.name="Name is required";
+    if(!formData.email||!/\S+@\S+\.\S+/.test(formData.email))e.email="Valid email required";
+    if(!formData.phone)e.phone="Phone number is required";
+    if(!formData.eventType)e.eventType="Please select event type";
+    if(!formData.eventDate)e.eventDate="Event date is required";
+    if(!formData.budget)e.budget="Please select a budget range";
+    if(Object.keys(e).length){setErrors(e);return;}
+    setBookingData({...formData});
+    nav("confirmation");
+  };
+
+  return e("div",null,
+    page!=="admin"&&e(Nav,{page,nav}),
+    page==="home"&&e(HomePage,{nav}),
+    page==="packages"&&e(PackagesPage,{nav,onBook:handleBookPkg}),
+    page==="booking"&&e(BookingPage,{nav,formData,setFormData,errors,setErrors,onSubmit:handleSubmit}),
+    page==="confirmation"&&e(ConfirmationPage,{nav,bookingData}),
+    page==="admin"&&e(AdminPage,{nav})
+  );
+}
+
+ReactDOM.render(e(App),document.getElementById("app"));
+</script>

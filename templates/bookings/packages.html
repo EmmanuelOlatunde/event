@@ -1,0 +1,58 @@
+{% extends "bookings/base.html" %}
+{% block title %}Packages — Elara Events{% endblock %}
+
+{% block content %}
+
+<section style="padding: 88px 0; background: var(--ivory);">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+
+    <div style="font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 10px;">Transparent Pricing</div>
+    <h1 class="serif" style="font-size: clamp(34px,5vw,50px); font-weight: 500; text-align: center; margin-bottom: 14px; line-height: 1.08;">Choose Your Experience</h1>
+    <p style="text-align: center; color: var(--stone); font-size: 15px; line-height: 1.75; max-width: 520px; margin: 0 auto 52px; font-weight: 300;">Every package is crafted to deliver exceptional results. No hidden fees, no surprises — just your perfect day.</p>
+
+    <!-- Package Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      {% for pkg in packages %}
+      <div style="
+        border: 1px solid {% if pkg.is_featured %}var(--char){% else %}var(--bdr){% endif %};
+        padding: 44px 32px;
+        background: {% if pkg.is_featured %}var(--char){% else %}#fff{% endif %};
+        color: {% if pkg.is_featured %}#fff{% else %}var(--char){% endif %};
+        position: relative;
+        {% if pkg.is_featured %}transform: scale(1.025); box-shadow: 0 24px 60px rgba(28,25,23,.22); z-index: 2;{% else %}transition: all .3s;{% endif %}
+      ">
+        {% if pkg.is_featured %}
+        <div style="background: var(--gold); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 14px; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); white-space: nowrap;">Most Popular</div>
+        {% endif %}
+
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;">{{ pkg.name }}</div>
+        <div class="serif" style="font-size: 44px; font-weight: 500; line-height: 1; margin-bottom: 4px;">{{ pkg.starting_price }}</div>
+        <div style="font-size: 12px; color: {% if pkg.is_featured %}rgba(255,255,255,.45){% else %}var(--stone-l){% endif %}; margin-bottom: 28px;">{{ pkg.description }}</div>
+        <div style="height: 1px; background: {% if pkg.is_featured %}rgba(255,255,255,.12){% else %}var(--bdr){% endif %}; margin-bottom: 28px;"></div>
+
+        <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 12px;">
+          {% for feature in pkg.get_features_list %}
+          <li style="font-size: 13px; color: {% if pkg.is_featured %}rgba(255,255,255,.65){% else %}var(--stone){% endif %}; display: flex; gap: 9px; align-items: flex-start; line-height: 1.55;">
+            <span style="color: var(--gold); font-size: 10px; flex-shrink: 0; margin-top: 2px;">✦</span>
+            <span>{{ feature }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <a href="{% url 'book_package' pkg.id %}"
+           style="display: block; text-align: center; padding: 14px; font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; text-decoration: none; transition: all .2s;
+           {% if pkg.is_featured %}background: var(--gold); color: #fff;{% else %}background: transparent; color: var(--char); border: 1.5px solid var(--char);{% endif %}">
+          Book {{ pkg.name }}
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p style="text-align: center; margin-top: 36px; font-size: 13px; color: var(--stone);">
+      Not sure which fits?
+      <a href="{% url 'book' %}" style="color: var(--gold); font-weight: 600; text-decoration: none;">Book a free consultation →</a>
+    </p>
+  </div>
+</section>
+
+{% endblock %}
