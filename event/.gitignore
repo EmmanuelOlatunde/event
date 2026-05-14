@@ -1,0 +1,94 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+
+# Type checker
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.*
+
+# Django stuff
+*.log
+db.sqlite3
+media/
+
+# Flask stuff
+instance/
+.webassets-cache
+
+# FastAPI / Uvicorn
+*.pid
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Mac / Linux / Windows junk
+.DS_Store
+Thumbs.db
+
+# Node (if frontend exists)
+node_modules/
+
+# Static build files
+staticfiles/
+
+# Celery
+celerybeat-schedule
+
+# Sphinx docs
+docs/_build/
+
+# PyInstaller
+*.manifest
+*.spec
