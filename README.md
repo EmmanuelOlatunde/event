@@ -7,7 +7,7 @@ This project helps event planners manage client requests, packages, and bookings
 ---
 
 ## 🚀 Live Demo
-[Add your deployed link here]
+https://event-7vsc.onrender.com/
 
 ---
 
