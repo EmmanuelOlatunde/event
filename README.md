@@ -101,5 +101,5 @@ And allows admins to:
 
 ### 1. Clone repository
 ```bash
-git clone https://github.com/yourusername/event-booking-system.git
-cd event-booking-system
+git clone https://github.com/EmmanuelOlatunde/event.git
+cd event
